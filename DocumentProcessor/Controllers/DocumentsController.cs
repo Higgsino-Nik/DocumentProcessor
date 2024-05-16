@@ -30,7 +30,7 @@ namespace DocumentProcessor.Controllers
             return Ok(_mapper.Map<DocumentResponse>(document));
         }
 
-        [HttpPut("{id}")]
+        [HttpPut("StartWork/{id}")]
         public async Task<IActionResult> StartWork(long id)
         {
             var document = await _repository.GetDocumentAsync(id);
