@@ -7,14 +7,14 @@ namespace DocumentProcessor.Controllers
     [Route("[controller]")]
     public class TasksController(Repository _repository) : ControllerBase
     {
-        [HttpPost]
+        [HttpPost("{documentId}")]
         public async Task<IActionResult> Create(long documentId, string taskName)
         {
             await _repository.AddTaskAsync(documentId, taskName);
             return Ok();
         }
 
-        [HttpPut("Complete")]
+        [HttpPut("Complete/{id}")]
         public async Task<IActionResult> Complete(long id)
         {
             var isInProgress = await IsInProgress(id);
@@ -31,7 +31,7 @@ namespace DocumentProcessor.Controllers
             return Ok();
         }
 
-        [HttpPut("Cancel")]
+        [HttpPut("Cancel/{id}")]
         public async Task<IActionResult> Cancel(long id)
         {
             var isInProgress = await IsInProgress(id);
