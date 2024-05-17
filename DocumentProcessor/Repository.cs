@@ -15,7 +15,8 @@ namespace DocumentProcessor
         {
             var document = new DalDocument
             {
-                StatusId = (int)Status.NotStarted
+                StatusId = (int)Status.NotStarted,
+                CreatedOnUtc = DateTime.UtcNow
             };
             _context.Documents.Add(document);
             await _context.SaveChangesAsync();

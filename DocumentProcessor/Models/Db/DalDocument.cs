@@ -10,6 +10,7 @@ namespace DocumentProcessor.Models.Db
         public long Id { get; set; }
         public int StatusId { get; set; }
         public bool IsDeleted { get; set; }
+        public DateTime CreatedOnUtc { get; set; }
         public ICollection<DalTask> Tasks { get => _tasks ?? []; set => _tasks = value; }
         
         private ICollection<DalTask> _tasks;
